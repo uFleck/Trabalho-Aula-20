@@ -76,4 +76,16 @@ public class Aluno {
              return "\nAluno Aprovado com Laurea Acadêmica";
         }
     }
+    public String gabarito(){
+        return "\nQuestão 1  => Alternativa 3"+
+               "\nQuestão 2  => Alternativa 3"+
+               "\nQuestão 3  => Alternativa 4"+
+               "\nQuestão 4  => Alternativa 2"+
+               "\nQuestão 5  => Alternativa 4"+
+               "\nQuestão 6  => Alternativa 1"+
+               "\nQuestão 7  => Alternativa 3"+
+               "\nQuestão 8  => Alternativa 3"+
+               "\nQuestão 9  => Alternativa 2"+
+               "\nQuestão 10 => Alternativa 2\n";
+    }
 }

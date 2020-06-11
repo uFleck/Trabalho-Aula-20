@@ -10,6 +10,7 @@ public class Main {
         
         System.out.println("Seja bem-vindo(a)!");
         
+        boolean fezProva = false;         
         boolean logado = false;
         boolean cadastrado = false;
         byte tInicial;
@@ -111,7 +112,7 @@ public class Main {
                     break;
 
                     
-                case 2:
+                case 2:  
                     if(cadastrado){
                         System.out.println("Você já está cadastrado!");
                     } else{
@@ -135,7 +136,7 @@ public class Main {
                         cadastrado = true;
                     }
                     break;
-                    
+                
                 case 3:
                     int contAcertos = 0;
                     int contErros = 0;
@@ -352,9 +353,15 @@ public class Main {
                     }
                     System.out.println("\nAluno: "+a1.getNome());
                     System.out.println("RA do Aluno: "+a1.getRa()+"\n");
+                    
+                    fezProva = true;
                     break;
                 case 4:
-                    
+                    if(fezProva == true){
+                    System.out.println("RESPOSTAS DA PROVA!!!\n"+a1.gabarito());
+                    }else{
+                        System.out.println("Vai Fazer a Prova");
+                    }
                     break;
                 case 0:
                     System.out.println("Bye-Bye!");
