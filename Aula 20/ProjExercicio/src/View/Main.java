@@ -99,7 +99,6 @@ public class Main {
                                         } while(!senha.equals(a1.getSenha()) && voltar == false);
                                     } else{
                                         System.out.println("Você foi logado com sucesso!");
-                                        voltar = true;
                                         break;
                                     }
                                 }
