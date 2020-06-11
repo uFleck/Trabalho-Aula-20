@@ -5,8 +5,8 @@ import Model.Aluno;
 
 public class Main {
     public static void main(String[] args) {
-        var in = new Scanner(System.in);
-        var a1 = new Aluno();
+        Scanner in = new Scanner(System.in);
+        Aluno a1 = new Aluno();
         
         System.out.println("Seja bem-vindo(a)!");
         

@@ -1,6 +1,5 @@
 package Model;
 
-
 public class Aluno {
     private String nome;
     private String ra;
@@ -59,5 +58,22 @@ public class Aluno {
     
     public void cadastrar(byte i, byte respostas){
         this.respostas[i] = respostas;
+    }
+    
+    public byte calcularNota(){
+        return (calcularAcertos() - calcularErros()) / 10;
+    }
+    
+    public String verResultado(){
+        byte nota = calcularNota();
+        if(nota <= 1){
+             return "\nAluno Reprovado";
+        }else if(nota <= 5 ){
+             return "\nAluno em Recuperação";
+        }else if(nota <= 9 ){
+             return "\nAluno Aprovado";
+        }else {
+             return "\nAluno Aprovado com Laurea Acadêmica";
+        }
     }
 }
