@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Arrays;
+
 public class Aluno {
     private String nome;
     private String ra;
@@ -53,28 +55,53 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "\nNome: " + nome + "\nRegistro do Aluno: " + ra + "\nLogin: " + login + "\nSenha: " + senha;
+        return "Nome: " + nome + "\nRegistro do Aluno: " + ra + "\nLogin: " + login + "\nSenha: " + senha;
     }
     
     public void cadastrar(int i, int respostas){
         this.respostas[i] = respostas;
     }
     
-    int nota;
-    public void calcularNota(int contAcertos, int contErros){
-        nota = (contAcertos - contErros) / 10;
-    }
+    int contErros;
+    int contAcertos;
+    int[] respostasCorretas = {3, 3, 4, 2, 4, 1, 3, 3, 2, 2};
     
     public String verResultado(){
-        if(nota <= 1){
-             return "\nVocê foi Reprovado";
-        }else if(nota <= 5 ){
-             return "\nVocê está em Recuperação";
-        }else if(nota <= 9 ){
-             return "\nVocê foi Aprovado";
-        }else {
-             return "\nVocê foi Aprovado com Laurea Acadêmica";
+        contErros = 0;
+        contAcertos = 0;
+        for(byte i = 0; i < respostas.length; i++){
+            if(respostas[i] != respostasCorretas[i]){
+                contErros++;
+            }else{
+                contAcertos++;
+            }
         }
+        
+        if(contAcertos <= 1){
+             return "Você acertou " + contAcertos + ", portanto, você foi Reprovado.";
+        }else if(contAcertos <= 5 ){
+             return "Você acertou " + contAcertos + ", portanto, você está em Recuperação.";
+        }else if(contAcertos <= 9 ){
+             return "Você acertou " + contAcertos + ", portanto, você foi Aprovado.";
+        }else {
+             return "Você acertou " + contAcertos + ", portanto, você foi Aprovado com Laurea Acadêmica.";
+        }
+    }
+    
+
+        
+    public String calcularAcertosEErros(){
+        contErros = 0;
+        contAcertos = 0;
+        for(byte i = 0; i < respostas.length; i++){
+            if(respostas[i] != respostasCorretas[i]){
+                contErros++;
+            }else{
+                contAcertos++;
+            }
+        }
+        return "\nVocê acertou " + contAcertos + " e errou " + contErros;
+        
     }
     
     public String verGabarito(){
@@ -87,6 +114,7 @@ public class Aluno {
                "\nQuestão 7  = Alternativa 3"+
                "\nQuestão 8  = Alternativa 3"+
                "\nQuestão 9  = Alternativa 2"+
-               "\nQuestão 10 = Alternativa 2\n";
+               "\nQuestão 10 = Alternativa 2"+
+               "\n----------------------------\n";
     }
 }
