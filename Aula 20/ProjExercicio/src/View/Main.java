@@ -28,7 +28,7 @@ public class Main {
             tInicial = in.nextByte();
             
             switch(tInicial){
-                case 1 -> {
+                case 1:
                     byte voltar1 = 1;
                     if(cadastrado){
                         if(logado){
@@ -63,7 +63,7 @@ public class Main {
                                         System.out.println("1 - Tentar novamente        2 - Voltar");
                                         byte opL = in.nextByte();
                                         switch (opL){
-                                            case 1 -> {
+                                            case 1:
                                                 do{
                                                     System.out.println("Digite seu Login novamente:");
                                                     login = in.next();
@@ -71,7 +71,7 @@ public class Main {
                                                         System.out.println("################");
                                                         System.out.println("Login incorreto!");
                                                         System.out.println("1 - Tentar novamente        2 - Voltar");
-                                                        byte lVoltar =in.nextByte();
+                                                        byte lVoltar = in.nextByte();
                                                         if(lVoltar == 2){
                                                             System.out.println("Voltando...");
                                                             voltar = true;
@@ -84,12 +84,14 @@ public class Main {
                                                         voltar = true;
                                                     }
                                                 } while(!login.equals(a1.getLogin()) || voltar == false);
-                                            }
-                                            case 2 -> {
+                                                break;
+                                            
+                                            case 2:
                                                 System.out.println("Voltando...");
                                                 voltar = true;
-                                            }
+                                                break;
                                         }
+                                        
                                     } while(!login.equals(a1.getLogin()) && voltar == false);
                                 }
 
@@ -105,18 +107,16 @@ public class Main {
                                             System.out.println("1 - Tentar novamente        2 - Voltar");
                                             byte opS = in.nextByte();
 
-                                            switch(opS){
-                                                case 1 -> {
+                                            switch (opS){
+                                                case 1:
                                                     do{
                                                         System.out.println("Digite sua Senha novamente:");
                                                         senha = in.next();
                                                         if(!senha.equals(a1.getSenha())){
                                                             System.out.println("################");
                                                             System.out.println("Senha incorreta!");
-                                                            System.out.println("################");
                                                             System.out.println("1 - Tentar novamente        2 - Voltar");
                                                             byte sVoltar = in.nextByte();
-
                                                             if(sVoltar == 2){
                                                                 System.out.println("Voltando...");
                                                                 voltar = true;
@@ -126,20 +126,22 @@ public class Main {
                                                             System.out.println("-----------------");
                                                             System.out.println("Senha confirmada!");
                                                             System.out.println("-----------------");
+                                                            voltar = true;
+                                                            break;
                                                         }
-                                                    } while(!senha.equals(a1.getSenha()) && voltar == false);
-                                                }
+                                                    } while(!senha.equals(a1.getSenha()) || voltar == false);
 
-                                                case 2 -> {
+                                                case 2:
                                                     System.out.println("Voltando...");
                                                     voltar = true;
-                                                }
+                                                    break;
                                             }
                                         } while(!senha.equals(a1.getSenha()) && voltar == false);
                                     } else{
                                         System.out.println("----------------------------");
                                         System.out.println("Você foi logado com sucesso!");
                                         System.out.println("----------------------------");
+                                        logado = true;
                                         do{
                                             if(voltar1 != 1){
                                                 System.out.println("################");
@@ -154,9 +156,14 @@ public class Main {
                                         }while(voltar1 != 1);
                                         break;
                                     }
+                                    if(senha.equals(a1.getSenha()) && login.equals(a1.getLogin())){
+                                        System.out.println("----------------------------");
+                                        System.out.println("Você foi logado com sucesso!");
+                                        System.out.println("----------------------------");
+                                        logado = true;
+                                    }
                                 }
                             }while(voltar == false);
-                            logado = true;
                         }
                     } else{
                         System.out.println("#####################");
@@ -175,10 +182,10 @@ public class Main {
                             }
                         }while(voltar1 != 1);
                     }
-                }
+                    break;
 
                     
-                case 2 -> {  
+                case 2: 
                     byte voltar2 = 1;
                     if(cadastrado){
                         System.out.println("########################");
@@ -231,9 +238,9 @@ public class Main {
                         }while(voltar2 != 1);
                         cadastrado = true;
                     }
-                }
+                    break;
                 
-                case 3 -> {
+                case 3:
                     byte voltar3 = 1;
                     if(fezProva){
                         System.out.println("####################");
@@ -521,9 +528,9 @@ public class Main {
                             }while(voltar3 != 1);
                         }
                     }
-                }
+                    break;
                     
-                case 4 -> {
+                case 4:
                     byte voltar4 = 1;
                     do{
                         if(voltar4 != 1){
@@ -551,9 +558,9 @@ public class Main {
                             voltar4 = in.nextByte();
                         }
                     }while(voltar4 != 1);
-                }
+                    break;
                     
-                case 5 -> {
+                case 5:
                     byte voltar5 = 1;
                     do{
                         if(voltar5 != 1){
@@ -582,9 +589,9 @@ public class Main {
                             voltar5 = in.nextByte();
                         }
                     }while(voltar5 != 1);
-                }
+                    break;
                     
-                case 6 -> {
+                case 6:
                     byte voltar6 = 1;
                     do{
                         if(voltar6 != 1){
@@ -607,9 +614,10 @@ public class Main {
                             voltar6 = in.nextByte();
                         }
                     }while(voltar6 != 1);
-                }
+                    break;
+                
                     
-                case 7 -> {
+                case 7:
                     byte voltar7 = 1;
                     do{
                         if(voltar7 != 1){
@@ -636,21 +644,22 @@ public class Main {
                             voltar7 = in.nextByte();
                         }
                     }while(voltar7 != 1);
-                }
+                    break;
 
                     
-                case 0 -> {
+                case 0:
                     System.out.println("--------");
                     System.out.println("Bye-Bye!");
                     System.out.println("--------");
                     tInicial = 0;
-                }
+                    break;
+                
                     
-                default -> {
+                default:
                     System.out.println("################");
                     System.out.println("Número inválido!");
                     System.out.println("################");
-                }
+                    break;
             }
             
         }while(tInicial != 0);
